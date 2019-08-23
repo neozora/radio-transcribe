@@ -31,6 +31,7 @@ def prep(folder):
 def get_time():
     return "[" + datetime.now().strftime("%Y%m%d %H:%M:%S") + "] "
 
+
 def convert(mp3, wav):
     ff = ffmpy.FFmpeg(
         global_options={"-y -loglevel panic -hide_banner"},
@@ -42,7 +43,6 @@ def convert(mp3, wav):
 
 def transcribe(source_file):
     AUDIO_FILE = path.join(path.dirname(path.realpath(__file__)), source_file)
-
 
     r = sr.Recognizer()
     with sr.AudioFile(AUDIO_FILE) as source:
@@ -70,7 +70,7 @@ def main(source, output):
                         g.write(chunk)
                     convert(temp_mp3, temp_wav)
                     transcription = get_time() + transcribe(temp_wav)
-                    # f.write(transcription)
+                    f.write(transcription)
                     print(transcription)
                     
         except:
