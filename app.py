@@ -27,6 +27,7 @@ def prep(folder):
     if not os.path.exists(folder):
         os.mkdir(folder)
 
+
 def get_time():
     return "[" + datetime.now().strftime("%Y%m%d %H:%M:%S") + "] "
 
