@@ -7,9 +7,9 @@ from os import path
 from datetime import datetime
 
 chunk_size = 50000  # bytes
-output_file = "output\\transcript.txt"
-source_url = "http://bbcmedia.ic.llnwd.net/stream/bbcmedia_radio4fm_mf_q"
 resp_timeout = 5  # secs
+source_url = "http://bbcmedia.ic.llnwd.net/stream/bbcmedia_radio4fm_mf_q"
+output_file = "output\\transcript.txt"
 temp_mp3 = "temp\\audio.mp3"
 temp_wav = "temp\\audio.wav"
 
