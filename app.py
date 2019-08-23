@@ -9,9 +9,11 @@ from datetime import datetime
 chunk_size = 50000  # bytes
 resp_timeout = 5  # secs
 source_url = "http://bbcmedia.ic.llnwd.net/stream/bbcmedia_radio4fm_mf_q"
-output_file = "output\\transcript.txt"
-temp_mp3 = "temp\\audio.mp3"
-temp_wav = "temp\\audio.wav"
+output_dir = "output\\"
+output_file = output_dir + "transcript.txt"
+temp_dir = "temp\\"
+temp_mp3 = temp_dir + "audio.mp3"
+temp_wav = temp_dir + "audio.wav"
 
 headers = {
     'user-agent':
@@ -19,6 +21,11 @@ headers = {
     'AppleWebKit/537.36 (KHTML, like Gecko) '
     'Chrome/75.0.3770.100 Safari/537.36'
 }
+
+
+def prep(folder):
+    if not os.path.exists(folder):
+        os.mkdir(folder)
 
 def get_time():
     return "[" + datetime.now().strftime("%Y%m%d %H:%M:%S") + "] "
@@ -49,6 +56,10 @@ def transcribe(source_file):
 
 
 def main(source, output):
+
+    prep(temp_dir)
+    prep(output_dir)
+    
     while True:
         try:
             with open(output, "a+") as f:
