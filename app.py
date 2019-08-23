@@ -4,6 +4,7 @@ import time
 import ffmpy
 import speech_recognition as sr
 from os import path
+from datetime import datetime
 
 chunk_size = 50000  # bytes
 output_file = "output\\transcript.txt"
@@ -19,6 +20,8 @@ headers = {
     'Chrome/75.0.3770.100 Safari/537.36'
 }
 
+def get_time():
+    return "[" + datetime.now().strftime("%Y%m%d %H:%M:%S") + "] "
 
 def convert(mp3, wav):
     ff = ffmpy.FFmpeg(
@@ -54,11 +57,12 @@ def main(source, output):
                     with open(temp_mp3, "wb+") as g:
                         g.write(chunk)
                     convert(temp_mp3, temp_wav)
-                    # f.write(transcribe(temp_wav))
-                    print(transcribe(temp_wav))
+                    transcription = get_time() + transcribe(temp_wav)
+                    # f.write(transcription)
+                    print(transcription)
                     
         except:
-            print("Retrying...")
+            print(get_time() + "(disconnected)")
             time.sleep(5)
         
 
