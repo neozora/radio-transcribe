@@ -8,3 +8,5 @@ Usage:
 1. Download and install FFmpeg from https://ffmpeg.org/download.html.
 2. Download and install SWIG (if needed) from http://www.swig.org/.
 3. cd to this directory and `pip install -r requirements.txt`
+
+Tested and working on Windows 10.
