@@ -1,3 +1,4 @@
 requests
 ffmpy
 speechrecognition
+pocketsphinx
