@@ -9,4 +9,4 @@ Usage:
 2. Download and install SWIG (if needed) from http://www.swig.org/.
 3. cd to this directory and `pip install -r requirements.txt`
 
-Tested and working on Windows 10.
+Tested and working on Python 3.7 (32-bit), Windows 10.
